@@ -23,6 +23,6 @@ class Event(models.Model):
     tps=models.TextChoices('event_type', 'VIRTUAL PRESENCIAL')
     event_type = models.CharField(max_length=20, choices=tps.choices)
 
-    thumbnail = models.TextField()
+    thumbnail = models.ImageField(upload_to='thumbnails')
 
     owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
