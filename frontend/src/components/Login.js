@@ -32,7 +32,7 @@ class Login extends React.Component{
                 else alert('Correo o contraseña incorrecto')
             }
             else alert('Correo o contraseña incorrecto')
-        })
+        }).catch(e=>{alert('Hubo un error en el inicio de sesión')})
       }
     render(){
         if (this.props.authenticate ){
