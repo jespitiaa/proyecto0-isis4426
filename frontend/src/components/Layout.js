@@ -1,5 +1,5 @@
 import React from 'react'
-import {Route, Redirect} from 'react-router-dom'
+import {Route, Redirect, Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import CreateUser from "./CreateUser";
 import Login from "./Login";
@@ -16,6 +16,12 @@ class Layout extends React.Component{
             return <Redirect to='/login'/>
         return <>
             <div className="container">
+                {this.props.authenticate?
+                    <ul className='nav'>
+                        <li className='nav'><Link to ='/'>Home</Link></li>
+                        <li className='nav'><button onClick={this.props.onExpired}>Exit</button></li>
+                    </ul>
+                :''}
 
                 <Route path="/" exact component={ListEvents}/>
                 <Route path="/login" exact component={Login}/>
@@ -37,5 +43,13 @@ const mapStatetoProps = state =>{
 }
 
 
+const mapDispatchToProps = dispatch => {
+    return{
+        onExpired: ()=>{
+            return dispatch({type:UNAUTHENTICATE})
+        } 
+    }
+}
 
-export default connect(mapStatetoProps)(Layout);
+
+export default connect(mapStatetoProps, mapDispatchToProps)(Layout);
