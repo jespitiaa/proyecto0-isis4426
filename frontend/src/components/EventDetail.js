@@ -19,7 +19,7 @@ class EventDetail extends React.Component{
         }
     }
     componentDidMount(){
-        axios.get(`/events/${this.props.match.params.id}`, {headers: {'Authorization': `Token ${this.props.token}`}})
+        axios.get(`/api/events/${this.props.match.params.id}`, {headers: {'Authorization': `Token ${this.props.token}`}})
         .then(res=>{
             this.setState({
             ...res.data

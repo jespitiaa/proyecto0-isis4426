@@ -58,7 +58,7 @@ class ListEvents extends React.Component{
                             <td>{evt.event_final_date}</td>
                             <td>{evt.event_type}</td>
                             <td><Link to={`/events/${evt.id}`}>Ver evento</Link></td>
-                            <td><Button onClick={this.handleDelete(evt.id)}></Button></td>
+                            <td><Button onClick={()=>this.handleDelete(evt.id)}></Button></td>
                         </tr>
                     })}
                 </tbody>

@@ -20,6 +20,7 @@ class CreateEvent extends React.Component{
     }
     
     render(){
+	console.log(this.state)
         return <>
         <Form onSubmit={this.handleSubmit}>
             <Form.Group controlId="formBasicName">
@@ -100,7 +101,7 @@ class CreateEvent extends React.Component{
         data.append('event_final_date', this.state.event_final_date);
         data.append('event_type', this.state.event_type);
         data.append('thumbnail', this.state.thumbnail);
-        axios.post('/api/events', data, {headers: {'Authorization': `Token ${this.props.token}`}})
+        axios.post('/api/events/', data, {headers: {'Authorization': `Token ${this.props.token}`}})
         .then(res=>{
             if(res.status >=200 && res.status <300){
                 alert('Se ha creado el evento')

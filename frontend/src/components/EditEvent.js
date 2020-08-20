@@ -24,6 +24,7 @@ class CreateEvent extends React.Component{
         .then(res=>{this.setState({...res.data})})
     }
     render(){
+	console.log(this.state)
         return <>
         <Form onSubmit={this.handleSubmit}>
             <Form.Group controlId="formBasicName">
@@ -104,7 +105,7 @@ class CreateEvent extends React.Component{
         data.append('event_final_date', this.state.event_final_date);
         data.append('event_type', this.state.event_type);
         data.append('thumbnail', this.state.thumbnail);
-        axios.put('/api/events', data, {headers: {'Authorization': `Token ${this.props.token}`}})
+        axios.put('/api/events/', data, {headers: {'Authorization': `Token ${this.props.token}`}})
         .then(res=>{
             if(res.status >=200 && res.status <300){
                 alert('Se ha editado el evento')
