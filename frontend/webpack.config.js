@@ -29,6 +29,15 @@ module.exports = {
       },
     ],
   },
+  devServer: {
+    contentBase: path.join(__dirname, 'dist'),
+    compress: true,
+    port: 8086,
+    allowedHosts:['*'],
+    disableHostCheck: true,
+    host: '0.0.0.0'
+
+  },
   plugins: [
     new HtmlWebPackPlugin({
       template: "./public/index.html",
