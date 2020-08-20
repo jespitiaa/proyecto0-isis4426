@@ -69,7 +69,7 @@ class ListEvents extends React.Component{
     }
 
     handleDelete=(id)=>{
-        axios.delete(`/api/event/${id}`, {headers: {'Authorization': `Token ${this.props.token}`}})
+        axios.delete(`/api/events/${id}`, {headers: {'Authorization': `Token ${this.props.token}`}})
         .then(res=>{
             alert('Se ha eliminado el evento exitosamente')
             window.location.reload();

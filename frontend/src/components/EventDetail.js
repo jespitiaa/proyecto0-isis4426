@@ -32,16 +32,18 @@ class EventDetail extends React.Component{
         <img src={this.state.thumbnail} width={'720px'}/>
         <h2>Información del evento</h2>
         <div>
-            <div>
-                {this.state.event_category}
-                {this.state.event_type}
-                {this.state.event_place}
-                {this.state.event_address}
-            </div>
-            <div>
-                {this.state.event_initial_date}
-                {this.state.event_final_date}
-            </div>
+            <h3>Categoría:</h3>
+            <p>{this.state.event_category}</p>
+            <h3>Tipo:</h3>
+            <p>{this.state.event_type}</p>
+            <h3>Lugar:</h3>
+            <p>{this.state.event_place}</p>
+            <h3>Dirección:</h3>
+            <p>{this.state.event_address}</p>
+            <h3>Fecha inicio:</h3>
+            <p>{this.state.event_initial_date}</p>
+            <h3>Fecha fin:</h3>
+            <p>{this.state.event_final_date}</p>
         </div>
         </>
         :this.state.requested?

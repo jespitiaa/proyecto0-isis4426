@@ -22,7 +22,10 @@ class CreateEvent extends React.Component{
     }
     componentDidMount(){
         axios.get(`/api/events/${this.props.match.params.id}`, {headers: {'Authorization': `Token ${this.props.token}`}})
-        .then(res=>{this.setState({...res.data, requested:true})})
+        .then(res=>{
+            this.setState({...res.data, requested:true}); 
+            this.forceUpdate();
+        })
     }
     render(){
         return this.state.requested?<>
