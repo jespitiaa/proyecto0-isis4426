@@ -106,7 +106,6 @@ class CreateEvent extends React.Component{
             if(res.status >=200 && res.status <300){
                 alert('Se ha creado el evento')
                 window.location.pathname='/events'
-                window.location.reload()
             }
         })
         .catch(e=>{

@@ -5,7 +5,7 @@ import Form from 'react-bootstrap/Form'
 const FormData = require('form-data');
 const fs = require('fs');
 
-class CreateEvent extends React.Component{
+class EditEvent extends React.Component{
     constructor(props){
         super(props)
         this.state = {
@@ -32,7 +32,7 @@ class CreateEvent extends React.Component{
         <Form onSubmit={this.handleSubmit}>
             <Form.Group controlId="formBasicName">
                 <Form.Label>Nombre del evento</Form.Label>
-                <Form.Control type="text" placeholder="Event name" onChange={(event)=>this.setState({event_name:event.target.value})} />
+                <Form.Control type="text" placeholder={this.state.event_name} onChange={(event)=>this.setState({event_name:event.target.value})} />
             </Form.Group>
             
             <Form.Group controlId="formBasicCategory">
@@ -52,22 +52,22 @@ class CreateEvent extends React.Component{
             
             <Form.Group controlId="formBasicPlace">
                 <Form.Label>Nombre del lugar del evento</Form.Label>
-                <Form.Control type="text" placeholder="Event place" onChange={(event)=>this.setState({event_place:event.target.value})} />
+                <Form.Control type="text" placeholder={this.state.event_place} onChange={(event)=>this.setState({event_place:event.target.value})} />
             </Form.Group>
             
             <Form.Group controlId="formBasicAddress">
                 <Form.Label>Dirección del lugar del evento</Form.Label>
-                <Form.Control type="text" placeholder="Event address" onChange={(event)=>this.setState({event_address:event.target.value})} />
+                <Form.Control type="text" placeholder={this.state.event_address} onChange={(event)=>this.setState({event_address:event.target.value})} />
             </Form.Group>
             
             <Form.Group controlId="formBasicInitDate">
                 <Form.Label>Fecha de inicio del evento</Form.Label>
-                <Form.Control type="text" placeholder="<YYYY-MM-DD>T<HH:MM:SS>Z" onChange={(event)=>this.setState({event_initial_date:event.target.value})} />
+                <Form.Control type="text" placeholder={this.state.event_initial_date} onChange={(event)=>this.setState({event_initial_date:event.target.value})} />
             </Form.Group>
             
             <Form.Group controlId="formBasicFinalDate">
                 <Form.Label>Fecha de fin del evento</Form.Label>
-                <Form.Control type="text" placeholder="<YYYY-MM-DD>T<HH:MM:SS>Z" onChange={(event)=>this.setState({event_final_date:event.target.value})} />
+                <Form.Control type="text" placeholder={this.state.event_final_date} onChange={(event)=>this.setState({event_final_date:event.target.value})} />
             </Form.Group>
 
             <Form.Group controlId="formBasicType">
@@ -129,4 +129,4 @@ const mapStatetoProps = state =>{
     }
 }
 
-export default connect(mapStatetoProps)(CreateEvent);
+export default connect(mapStatetoProps)(EditEvent);
