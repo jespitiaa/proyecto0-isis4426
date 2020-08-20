@@ -28,7 +28,7 @@ class CreateEvent extends React.Component{
         <Form onSubmit={this.handleSubmit}>
             <Form.Group controlId="formBasicName">
                 <Form.Label>Nombre del evento</Form.Label>
-                <Form.Control type="text" placeholder="Event name" onChange={(value)=>this.setState({event_name:value})} />
+                <Form.Control type="text" placeholder="Event name" onChange={(event)=>this.setState({event_name:event.target.value})} />
             </Form.Group>
             
             <Form.Group controlId="formBasicCategory">
@@ -36,7 +36,7 @@ class CreateEvent extends React.Component{
                 <Form.Control 
                     as="select" 
                     name='Event category'
-                    onChange={(value)=>this.setState({event_category:value})}
+                    onChange={(event)=>this.setState({event_category:event.target.value})}
                     value={this.state.event_category}
                     >
                     <option key={1} value='CONFERENCE'>Conferencia</option>
@@ -48,22 +48,22 @@ class CreateEvent extends React.Component{
             
             <Form.Group controlId="formBasicPlace">
                 <Form.Label>Nombre del lugar del evento</Form.Label>
-                <Form.Control type="text" placeholder="Event place" onChange={(value)=>this.setState({event_place:value})} />
+                <Form.Control type="text" placeholder="Event place" onChange={(event)=>this.setState({event_place:event.target.value})} />
             </Form.Group>
             
             <Form.Group controlId="formBasicAddress">
                 <Form.Label>Dirección del lugar del evento</Form.Label>
-                <Form.Control type="text" placeholder="Event address" onChange={(value)=>this.setState({event_address:value})} />
+                <Form.Control type="text" placeholder="Event address" onChange={(event)=>this.setState({event_address:event.target.value})} />
             </Form.Group>
             
             <Form.Group controlId="formBasicInitDate">
                 <Form.Label>Fecha de inicio del evento</Form.Label>
-                <Form.Control type="text" placeholder="<YYYY-MM-DD>T<HH:MM:SS>Z" onChange={(value)=>this.setState({event_initial_date:value})} />
+                <Form.Control type="text" placeholder="<YYYY-MM-DD>T<HH:MM:SS>Z" onChange={(event)=>this.setState({event_initial_date:event.target.value})} />
             </Form.Group>
             
             <Form.Group controlId="formBasicFinalDate">
                 <Form.Label>Fecha de fin del evento</Form.Label>
-                <Form.Control type="text" placeholder="<YYYY-MM-DD>T<HH:MM:SS>Z" onChange={(value)=>this.setState({event_final_date:value})} />
+                <Form.Control type="text" placeholder="<YYYY-MM-DD>T<HH:MM:SS>Z" onChange={(event)=>this.setState({event_final_date:event.target.value})} />
             </Form.Group>
 
             <Form.Group controlId="formBasicType">
@@ -71,7 +71,7 @@ class CreateEvent extends React.Component{
                 <Form.Control 
                     as="select" 
                     name='Event category'
-                    onChange={(value)=>this.setState({event_type:value})}
+                    onChange={(event)=>this.setState({event_type:event.target.value})}
                     value={this.state.event_type}
                     >
                     <option key={5} value='VIRTUAL'>Virtual</option>
