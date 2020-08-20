@@ -13,6 +13,7 @@ class Layout extends React.Component{
         if(!props.authenticate && (location.pathname!=="/login"))
             return <Redirect to='/login'/>
         return <>
+            <h1>Hola</h1>
             <Route path="/" exact component={ListEvents}/>
             <Route path="/login" exact component={Login}/>
             <Route path="/register" exact component={CreateUser}/>

@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import Table from 'react-bootstrap/Table';
-import {Button} from 'react-bootstrap';
+import {Button, Modal} from 'react-bootstrap';
 import axios from './helpers/axios-requests';
 
 class ListEvents extends React.Component{
@@ -10,7 +10,10 @@ class ListEvents extends React.Component{
         super(props);
         this.state = {
             requested : false,
-            eventos : [] 
+            eventos : [],
+            modalDetail: false,
+            modalEdit: false,
+            modalConfirmation: false
         }
     }
 
@@ -60,10 +63,11 @@ class ListEvents extends React.Component{
                     })}
                 </tbody>
             </Table>
-            : this.state.requested? <p>No has creado eventos</p>: <p>Cargando</p> 
+            : this.state.requested? <p>No has creado eventos</p>:<p>Cargando</p> 
         }
         </div>
     }
+
     handleDelete=(id)=>{
         axios.delete(`/api/event/${id}`, {headers: {'Authorization': `Token ${this.props.token}`}})
         .then(res=>{

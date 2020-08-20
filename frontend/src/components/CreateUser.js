@@ -1,5 +1,4 @@
 import React from 'react'
-import {Redirect, Link} from 'react-router-dom'
 import axios from './helpers/axios-requests'
 var qs = require('qs');
 
@@ -12,7 +11,6 @@ class CreateUser extends React.Component{
             email:'', 
             first_name:'',
             last_name:'',
-            created:false
         };
     }
     handleChangeUsr = (event) => {
@@ -42,7 +40,7 @@ class CreateUser extends React.Component{
         .then(res=>{
             if(res.status >=200 && res.status <300){
                 alert('Se ha creado el usuario. Por favor inicie sesión')
-                this.setState({created:true})
+                this.props.switch()
             }
             alert('Correo o contraseña incorrecto')
         })
@@ -51,9 +49,6 @@ class CreateUser extends React.Component{
         })
       }
     render(){
-        if (this.state.created ){
-            return <Redirect to="/login"/>
-        }
         return <div>
         <div className="logoLogin">
             <img src='/Escudo.svg' width={'350px'}/>
@@ -87,7 +82,7 @@ class CreateUser extends React.Component{
             </button>
         </Form>
         <div>
-            ¿Ya tienes cuenta? <br/><Link to='/login'>Inicia sesión</Link>
+            ¿Ya tienes cuenta? <br/><button onClick={this.props.switch}>Inicia sesión</button>
         </div>
     </div>
     }
@@ -99,8 +94,4 @@ const mapStatetoProps = state =>{
     }
 }
 
-const mapDispatchToProps = dispatch => {
-    return{}
-}
-
-export default connect(mapStatetoProps,mapDispatchToProps)(CreateUser);
+export default connect(mapStatetoProps)(CreateUser);

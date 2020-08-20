@@ -55,7 +55,7 @@ class Login extends React.Component{
             </button>
         </Form>
         <div>
-            ¿No tienes cuenta? <br/><Link to='/register'>Crear usuario</Link>
+            ¿No tienes cuenta? <br/><button onClick={this.props.switch}>Crear usuario</button>
         </div>
     </div>
     }
