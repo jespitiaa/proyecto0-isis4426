@@ -7,7 +7,7 @@ import ListEvents from "./ListEvents";
 import EventDetail from "./EventDetail";
 import EditEvent from "./EditEvent";
 import CreateEvent from "./CreateEvent";
-
+import {UNAUTHENTICATE} from "./helpers/actionTypes"
 
 class Layout extends React.Component{
     render(){
