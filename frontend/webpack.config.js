@@ -6,6 +6,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "bundle.js",
+    publicPath: '/',
   },
   resolve: {
     extensions: [".js", ".jsx"],
@@ -35,8 +36,8 @@ module.exports = {
     port: 8086,
     allowedHosts:['*'],
     disableHostCheck: true,
-    host: '0.0.0.0'
-
+    host: '0.0.0.0',
+    historyApiFallback: true,
   },
   plugins: [
     new HtmlWebPackPlugin({

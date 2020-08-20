@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from "react-router-dom";
+
 import Table from 'react-bootstrap/Table';
 import {Button} from 'react-bootstrap';
 import axios from './helpers/axios-requests';
@@ -28,7 +28,7 @@ class ListEvents extends React.Component{
     }
     render(){
         return <div>
-            <Link to='/event/create'>Crear un evento</Link>
+            <Button>Crear un evento</Button>
         {this.state.eventos && this.state.eventos.length?
             <Table className="alternatebg">
                 <thead>
@@ -54,7 +54,7 @@ class ListEvents extends React.Component{
                             <td>{evt.event_initial_date}</td>
                             <td>{evt.event_final_date}</td>
                             <td>{evt.event_type}</td>
-                            <td><Link to={`/events/${evt.id}`}>Ver evento</Link></td>
+                            <td><Button>Ver evento</Button></td>
                             <td><Button onClick={this.handleDelete(evt.id)}></Button></td>
                         </tr>
                     })}
