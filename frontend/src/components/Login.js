@@ -1,6 +1,10 @@
 import React from 'react'
 import {Redirect, Link} from 'react-router-dom'
+import {connect} from 'react-redux'
 import axios from './helpers/axios-requests'
+import Form from 'react-bootstrap/Form'
+import {AUTHENTICATE} from './helpers/actionTypes';
+
 var qs = require('qs');
 
 class Login extends React.Component{
@@ -55,7 +59,7 @@ class Login extends React.Component{
             </button>
         </Form>
         <div>
-            ¿No tienes cuenta? <br/><button onClick={this.props.switch}>Crear usuario</button>
+            ¿No tienes cuenta? <br/><Link to ='/register'>Crear usuario</Link>
         </div>
     </div>
     }

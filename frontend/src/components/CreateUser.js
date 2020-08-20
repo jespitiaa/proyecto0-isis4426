@@ -1,5 +1,9 @@
 import React from 'react'
 import axios from './helpers/axios-requests'
+import Form from 'react-bootstrap/Form'
+import {connect} from 'react-redux'
+import { Link } from 'react-router-dom';
+
 var qs = require('qs');
 
 class CreateUser extends React.Component{
@@ -82,7 +86,7 @@ class CreateUser extends React.Component{
             </button>
         </Form>
         <div>
-            ¿Ya tienes cuenta? <br/><button onClick={this.props.switch}>Inicia sesión</button>
+            ¿Ya tienes cuenta? <br/><Link to='/login'>Inicia sesión</Link>
         </div>
     </div>
     }

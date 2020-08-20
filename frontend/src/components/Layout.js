@@ -8,12 +8,13 @@ import EventDetail from "./EventDetail";
 import EditEvent from "./EditEvent";
 import CreateEvent from "./CreateEvent";
 
+
 class Layout extends React.Component{
     render(){
-        if(!props.authenticate && (location.pathname!=="/login"))
+        console.log(this.props)
+        if(!this.props.authenticate && (window.location.pathname!=="/login"))
             return <Redirect to='/login'/>
         return <>
-            <h1>Hola</h1>
             <Route path="/" exact component={ListEvents}/>
             <Route path="/login" exact component={Login}/>
             <Route path="/register" exact component={CreateUser}/>
@@ -32,13 +33,6 @@ const mapStatetoProps = state =>{
     }
 }
 
-const mapDispatchToProps = dispatch => {
-    return{
-        onExpired: ()=>{
-            return dispatch({type:UNAUTHENTICATE})
-        } 
-    }
-}
 
 
-export default connect(mapStatetoProps,mapDispatchToProps)(Layout);
+export default connect(mapStatetoProps)(Layout);
