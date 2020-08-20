@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.views.generic.base import RedirectView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/',include('api.urls')),
-    path('abc/', include('frontend.urls'))
+    path('abc/', RedirectView.as_view(url='http://172.24.98.89:8086/'), name='abc')
 ]
