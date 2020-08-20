@@ -33,6 +33,7 @@ class CreateUser extends React.Component{
         this.setState({last_name: event.target.value});
     }
     handleSubmit = async(event)=>{
+        event.preventDefault();
         let data = qs.stringify({
             'username': this.state.username,
             'password': this.state.contrasena,
@@ -44,18 +45,19 @@ class CreateUser extends React.Component{
         .then(res=>{
             if(res.status >=200 && res.status <300){
                 alert('Se ha creado el usuario. Por favor inicie sesión')
-                this.props.switch()
+                window.location.pathname='/login'
+                window.location.reload()
             }
             alert('Correo o contraseña incorrecto')
         })
         .catch(e=>{
-            alert('Hubo un error en la autenticación')
+            alert('Hubo un error en la creación de usuario')
         })
       }
     render(){
         return <div>
         <div className="logoLogin">
-            <img src='/Escudo.svg' width={'350px'}/>
+            <img src='/abc-logo.png' width={'350px'}/>
         </div>
         <Form onSubmit={this.handleSubmit}>
             <Form.Group controlId="formBasicUsr">
@@ -81,7 +83,7 @@ class CreateUser extends React.Component{
                 <Form.Control type="text" placeholder="Last name" onChange={this.handleChangeLastName} />
             </Form.Group>
 
-            <button className="yandw" type="submit">
+            <button className="yandw" onClick={this.handleSubmit}>
                 Ingresar
             </button>
         </Form>

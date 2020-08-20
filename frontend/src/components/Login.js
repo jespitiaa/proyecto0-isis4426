@@ -20,7 +20,7 @@ class Login extends React.Component{
         this.setState({contrasena: event.target.value});
     }
     handleSubmit = async(event)=>{
-	event.preventDefault();
+	    event.preventDefault();
         let data = qs.stringify({
             'username': this.state.username,
             'password': this.state.contrasena 
@@ -40,7 +40,7 @@ class Login extends React.Component{
         }
         return <div>
         <div className="logoLogin">
-            <img src='/Escudo.svg' width={'350px'}/>
+            <img src='/abc-logo.png' width={'350px'}/>
         </div>
         <Form>
             <Form.Group controlId="formBasicEmail">

@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from './helpers/axios-requests';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 class EventDetail extends React.Component{
     constructor(props){
@@ -26,6 +27,7 @@ class EventDetail extends React.Component{
     }
     render(){
         return this.state.event_name?<>
+        <Link to={`/events/${this.props.match.params.id}/edit`}>Editar</Link>
         <h1>{this.state.event_name}</h1>
         <img src={this.state.thumbnail} width={'720px'}/>
         <h2>Información del evento</h2>
