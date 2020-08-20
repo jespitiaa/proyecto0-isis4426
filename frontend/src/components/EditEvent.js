@@ -9,6 +9,7 @@ class CreateEvent extends React.Component{
     constructor(props){
         super(props)
         this.state = {
+            requested:false,
             event_name:'',
             event_category:'CONFERENCE',
             event_place:'',
@@ -21,11 +22,10 @@ class CreateEvent extends React.Component{
     }
     componentDidMount(){
         axios.get(`/api/events/${this.props.match.params.id}`, {headers: {'Authorization': `Token ${this.props.token}`}})
-        .then(res=>{this.setState({...res.data})})
+        .then(res=>{this.setState({...res.data, requested:true})})
     }
     render(){
-	console.log(this.state)
-        return <>
+        return this.state.requested?<>
         <Form onSubmit={this.handleSubmit}>
             <Form.Group controlId="formBasicName">
                 <Form.Label>Nombre del evento</Form.Label>
@@ -91,7 +91,7 @@ class CreateEvent extends React.Component{
                 Cambiar información
             </button>
         </Form>
-        </>
+        </>:<p>Cargando...</p>
     }
 
     handleSubmit(event){
