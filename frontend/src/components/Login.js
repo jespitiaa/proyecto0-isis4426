@@ -13,27 +13,25 @@ class Login extends React.Component{
         this.state = {username: '',contrasena:'', values:{}};
     }1
     handleChangeCorreo = (event) => {
-        this.setState({correo: event.target.value});
+        this.setState({username: event.target.value});
     }
 
     handleChangeContrasena= (event) => {
         this.setState({contrasena: event.target.value});
     }
     handleSubmit = async(event)=>{
+	event.preventDefault();
         let data = qs.stringify({
             'username': this.state.username,
             'password': this.state.contrasena 
         });
-        await axios.post('/api/api-auth', data)
+        await axios.post('/api/api-auth/', data)
         .then(res=>{
             if(res.status >=200 && res.status <300){
                 if(res.data.token) this.props.onLoginSuccesfull(res.data.token)
                 else alert('Correo o contraseña incorrecto')
             }
             else alert('Correo o contraseña incorrecto')
-        })
-        .catch(e=>{
-            alert('Hubo un error en la autenticación')
         })
       }
     render(){
@@ -44,7 +42,7 @@ class Login extends React.Component{
         <div className="logoLogin">
             <img src='/Escudo.svg' width={'350px'}/>
         </div>
-        <Form onSubmit={this.handleSubmit}>
+        <Form>
             <Form.Group controlId="formBasicEmail">
                 <Form.Label>Nombre de usuario</Form.Label>
                 <Form.Control type="text" placeholder="Username" onChange={this.handleChangeCorreo} />
@@ -54,7 +52,7 @@ class Login extends React.Component{
                 <Form.Label>Contraseña</Form.Label>
                 <Form.Control type="password" placeholder="Password" onChange={this.handleChangeContrasena} />
             </Form.Group>
-            <button className="yandw" type="submit">
+            <button className="yandw" onClick={this.handleSubmit}>
                 Ingresar
             </button>
         </Form>
