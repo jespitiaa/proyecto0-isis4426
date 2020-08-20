@@ -104,7 +104,7 @@ class CreateEvent extends React.Component{
         data.append('event_final_date', this.state.event_final_date);
         data.append('event_type', this.state.event_type);
         data.append('thumbnail', this.state.thumbnail);
-        await axios.put('/api/events', data, {headers: {'Authorization': `Token ${this.props.token}`}})
+        axios.put('/api/events', data, {headers: {'Authorization': `Token ${this.props.token}`}})
         .then(res=>{
             if(res.status >=200 && res.status <300){
                 alert('Se ha editado el evento')
