@@ -68,8 +68,8 @@ class CreateEvent extends React.Component{
                 <Form.Control 
                     as="select" 
                     name='Event category'
-                    onChange={(event)=>this.setState({event_category:event.target.value})}
-                    value={this.state.event_category}
+                    onChange={(event)=>this.setState({event_type:event.target.value})}
+                    value={this.state.event_type}
                     >
                     <option key={5} value='VIRTUAL'>Virtual</option>
                     <option key={6} value='PRESENCIAL'>Presencial</option>

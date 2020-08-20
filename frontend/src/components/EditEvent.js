@@ -74,7 +74,7 @@ class CreateEvent extends React.Component{
                 <Form.Label>Tipo del evento</Form.Label>
                 <Form.Control 
                     as="select" 
-                    name='Event category'
+                    name='Event type'
                     onChange={(event)=>this.setState({event_type:event.target.value})}
                     value={this.state.event_type}
                     >
